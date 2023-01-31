@@ -17,14 +17,15 @@ namespace VendasWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Minha Página Principal.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Minha Página de Contato.";
+            ViewData["Email"] = "mar-kym@hotmail.com";
 
             return View();
         }
