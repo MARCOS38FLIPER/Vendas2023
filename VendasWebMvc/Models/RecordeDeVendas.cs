@@ -10,7 +10,7 @@ namespace VendasWebMvc.Models
         public double Valor { get; set; }
         public StatusDeVendas Status { get; set; }
         public Vendedor Vendedor { get; set; }
-        public double Amount { get; internal set; }
+
 
         public RecordeDeVendas()
         {
