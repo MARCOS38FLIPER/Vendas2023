@@ -3,14 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VendasWebMvc.Serviços;
+
 
 namespace VendasWebMvc.Controllers
 {
     public class VendedoresController : Controller
     {
+        private readonly ServiçoVendedor _serviçoVendedor;
+        
+
+        public VendedoresController(ServiçoVendedor serviçoVendedor)
+        {
+            _serviçoVendedor = serviçoVendedor;
+        }
         public IActionResult Index()
         {
-            return View();
+            var list = _serviçoVendedor.FindAll();
+            return View(list);
         }
     }
 }
