@@ -14,7 +14,7 @@ namespace VendasWebMvc.Controllers
     {
         private readonly ServiçoVendedor _serviçoVendedor;
         private readonly DepartamentoServiço _departamentoServiço;
-        
+
         public VendedoresController(ServiçoVendedor serviçoVendedor, DepartamentoServiço departamentoServiço)
         {
             _serviçoVendedor = serviçoVendedor;
@@ -25,8 +25,8 @@ namespace VendasWebMvc.Controllers
             var list = _serviçoVendedor.FindAll();
             return View(list);
         }
-        
-          public IActionResult Create()
+
+        public IActionResult Create()
         {
             var departamentos = _departamentoServiço.FindAll();
             var viewModel = new VendedorFormVIewModel { Departamentos = departamentos };
@@ -63,6 +63,24 @@ namespace VendasWebMvc.Controllers
             _serviçoVendedor.Remove(id);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Detalhes(int?id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _serviçoVendedor.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        }
     }
 
-}
+
